@@ -19,7 +19,7 @@
 # Implementation: (similar to Adaline)
 
 import numpy as np
-
+import math
 class Sgd(object):
 
 	def __init__(self, _eta=0.1, _iter=10):
@@ -47,9 +47,10 @@ class Sgd(object):
 				error = target - zi
 				self.w[1:] += self.eta * xi.dot(error)
 				self.w[0] += self.eta * error
-				cost.append(0.5 * error**2)
+				#Getting an overflow error here with error squared
+				cost.append(0.5 * np.power(error, 2))
 			# average the costs from the training instances 
-			# in this iteration
+			# in this iteration (from notes)
 			average_cost = sum(cost) / len(y)
 			self.cost_.append(average_cost)
 			print (sum(cost))
