@@ -9,12 +9,11 @@ class Ovr(object):
         self.original_y = _original_y
 
     def learn(self, x, y):
-        # Get each class (extract distinct values from y) using a hashset
+        # Get each class (extract distinct values from y)
         self.classes = []
         for class_label in self.original_y:
             if class_label not in self.classes:
                 self.classes.append(class_label)
-            # self.classes.add(class_label)
 
         self.classifiers = []
 
@@ -33,6 +32,4 @@ class Ovr(object):
         for i in range(len(self.classifiers)):
             count[i] += self.classifiers[i].predict(x)        
         max_index = count.index(max(count))
-        # print(count)
-        # print ("max: " + str(max_index))
         return self.original_y[max_index]
