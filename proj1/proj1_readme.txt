@@ -25,6 +25,10 @@ python main.py sgd car.data
 python main.py ovr iris.data
 python main.py ovr car.data 
 
+# This should work for any data set, because I have
+# not hardcoded any lengths or attribut names. However
+# read further below to see cases this wouldn't work.
+
 ########
 # Note #
 ########

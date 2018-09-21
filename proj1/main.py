@@ -20,7 +20,7 @@ percent_training = 70
 dataset_size = len(df.index)
 training_size = int(dataset_size * (percent_training/100))
 dataset_columns = len(df.columns)
-true_class = df.iloc[0, dataset_columns - 1] #just pick the first one for binary classification
+true_class = 'iris-virginica' #just pick the first one for binary classification
 
 # Load data (all columns)
 # NOTE: This is different for Adaline. Weird behavior on all columns, so only using two (see report)
